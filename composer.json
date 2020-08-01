@@ -1,0 +1,7 @@
+{
+    "name": "havas/havas-html",
+    "description": "Html elements for Php",
+    "require": {
+        "php": "^7.0"
+    }
+}
