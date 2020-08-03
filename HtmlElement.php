@@ -100,6 +100,9 @@ class HtmlElement {
     public function add_single (string $attribute) {
         $this->attr_single[] = $attribute;
     }
+    public function set_single (array $attributes ) {
+        $this->attr_single = $attributes;
+    }
 
     public function remove_single_attributes (string ...$attributes) {
         $this->attr_single = array_diff($this->attr_single, $attributes);
@@ -115,6 +118,11 @@ class HtmlElement {
         $this->attr_double[$attribute] = $value;
     }
 
+    /** @param stirng[] double_attributes // indexed with strings */
+    public function set_double (array $double_attributes) {
+        $this->attr_double = $double_attributes;
+    }
+
     public function remove_double () { }
     public function remove_double_attributes () { }
 
@@ -124,6 +132,10 @@ class HtmlElement {
         }
 
         array_push($this->attr_multip[$attribute], $value);
+    }
+
+    public function set_multy (array $multy_attributes) {
+        $this->attr_multip = $multy_attributes;
     }
 
     public function clear_multip (string $attribute, $value) { }
@@ -178,5 +190,17 @@ class HtmlElement {
         }
 
         return $string_builder;
+    }
+}
+
+class StringElement {
+    public $content;
+
+    function __construct (string $content) {
+        $this->content = $content;
+    }
+
+    function print () {
+        return $this->content;
     }
 }
